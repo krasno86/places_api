@@ -1,0 +1,73 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API documentation for usual users",
+    "version": "v1"
+  },
+  "paths": {
+    "/signup": {
+      "post": {
+        "summary": "Create new user",
+        "tags": [
+          "Registration"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "params",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "full_name": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    },
+                    "role": {
+                      "type": "string",
+                      "enum": [
+                        "white",
+                        "red"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "full_name",
+                    "email",
+                    "password"
+                  ]
+                }
+              },
+              "required": [
+                "user"
+              ]
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Signup",
+            "examples": {
+              "application/json": {
+                "csrf": "SE12i2Br6WC4zxRo63XrbXiV3Is8Bzmib2adJyU9Oq6G/h1vHyyJdk8zNxQ8INPEbVVTVJaR13qbGftFEhHHKg=="
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
