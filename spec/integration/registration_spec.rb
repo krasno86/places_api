@@ -26,8 +26,7 @@ describe 'Places API', type: :request, swagger_doc: 'api/swagger_doc.json' do
       produces 'application/json'
 
       response '200', 'Signup' do
-        let(:params) { { email: 'a1@gmail.com', password: 'aa123456', password_confirmation: 'aa123456', username: 'afsafa' } }
-        # include_context 'with integration test'
+        let(:params) { { email: 'a1@gmail.com', password: 'aa123456', username: 'afsafa' } }
         run_test!
       end
 
