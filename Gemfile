@@ -26,6 +26,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rack-cors'
 gem 'rswag-api'
 gem 'rswag-ui'
+gem 'devise-jwt', '~> 0.6.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -36,7 +37,7 @@ group :development, :test do
   gem 'pry', '~> 0.13.0'
   gem 'rspec-rails', '~> 4.0'
   gem 'rswag-specs'
-  gem 'rubocop-rails', '~> 2.4', '>= 2.4.1'
+  gem 'rubocop-rails', '~> 2.4', '>= 2.4.1', require: false
 end
 
 group :development do
