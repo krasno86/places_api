@@ -7,8 +7,4 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   has_many :companies, dependent: :destroy
-
-  def jwt_payload
-    { foo: 'bar' }
-  end
 end
