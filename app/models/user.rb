@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable, :confirmable,
-         :jwt_authenticatable, jwt_revocation_strategy: JwtBlacklist
+  # has_secure_password
+
+  # devise :database_authenticatable, :registerable, :confirmable
 
   validates :username, presence: true, uniqueness: true
 

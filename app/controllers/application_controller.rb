@@ -1,7 +1,16 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
-  include ActionController::MimeResponds
+  # include ActionController::MimeResponds
+
+  include JWTSessions::RailsAuthorization
+  rescue_from JWTSessions::Errors::Unauthorized, with: :not_authorized
+
+  private
+
+  def not_authorized
+    render json: { error: 'Not authorized' }, status: :unauthorized
+  end
 
   def render_resource(resource)
     if resource.errors.empty?

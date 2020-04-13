@@ -5,14 +5,16 @@ Rails.application.routes.draw do
              defaults: { format: :json },
              path: '',
              path_names: {
-               sign_in: 'login',
-               sign_out: 'logout',
                registration: 'signup'
              },
              controllers: {
-               sessions: 'sessions',
                registrations: 'registrations'
              }
+
   mount Rswag::Ui::Engine, at: 'api-docs'
   mount Rswag::Api::Engine, at: 'api-docs'
+
+  post 'refresh', controller: :refresh, action: :create
+  post 'signin', controller: :signin, action: :create
+  delete 'signin', controller: :signin, action: :destroy
 end
