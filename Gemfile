@@ -26,6 +26,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rack-cors'
 gem 'rswag-api'
 gem 'rswag-ui'
+gem 'devise-jwt', '~> 0.6.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -36,7 +37,8 @@ group :development, :test do
   gem 'pry', '~> 0.13.0'
   gem 'rspec-rails', '~> 4.0'
   gem 'rswag-specs'
-  gem 'rubocop-rails', '~> 2.4', '>= 2.4.1'
+  gem 'rubocop-rails', '~> 2.4', '>= 2.4.1', require: false
+  gem 'dotenv-rails', '~> 2.7', '>= 2.7.5'
 end
 
 group :development do
@@ -44,6 +46,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'letter_opener', '~> 1.7'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
