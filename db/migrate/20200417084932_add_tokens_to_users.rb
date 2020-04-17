@@ -3,6 +3,10 @@ class AddTokensToUsers < ActiveRecord::Migration[6.0]
     add_column :users, :provider, :string, null: false, default: 'email'
     add_column :users, :uid, :string, null: false, default: ''
     add_column :users, :tokens, :text
+    add_column :users, :confirmation_token, :string
+    add_column :users, :confirmed_at, :datetime
+    add_column :users, :confirmation_sent_at, :datetime
+    add_column :users, :unconfirmed_email, :string
 
     # if your existing User model does not have an existing **encrypted_password** column uncomment below line.
     # add_column :users, :encrypted_password, :null => false, :default => ""
