@@ -26,7 +26,6 @@ gem 'rack-cors'
 gem 'rswag-api'
 gem 'rswag-ui'
 gem 'devise_token_auth', '~> 1.1', '>= 1.1.3'
-# gem 'devise'
 gem 'letter_opener', '~> 1.7'
 
 group :development, :test do
