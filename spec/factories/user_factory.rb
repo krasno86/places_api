@@ -13,6 +13,7 @@ FactoryBot.define do
 
     factory :unauthorized_user do
       confirmed_at { nil }
+      email { Faker::Internet.email }
     end
   end
 end

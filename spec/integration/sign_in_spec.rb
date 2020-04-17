@@ -39,4 +39,18 @@ describe 'Places API', type: :request, swagger_doc: 'api/swagger_doc.json' do
       end
     end
   end
+
+  path 'auth/sign_out' do
+    delete 'deleting session' do
+      tags 'Login'
+      consumes 'application/json'
+      parameter name: :id
+
+      let(:signed_in_user) { create(:authorized_user) }
+
+      response '200', 'session deleted' do
+        run_test!
+      end
+    end
+  end
 end
