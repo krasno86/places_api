@@ -3,4 +3,3 @@ class CompanyComment < ApplicationRecord
   validates :username, presence: true
   validates :message, presence: true
 end
-

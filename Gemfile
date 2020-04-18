@@ -15,7 +15,6 @@ gem 'puma', '~> 4.1'
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
-gem 'devise'
 gem 'bcrypt', '~> 3.1.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -26,6 +25,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rack-cors'
 gem 'rswag-api'
 gem 'rswag-ui'
+gem 'devise_token_auth', '~> 1.1', '>= 1.1.3'
+gem 'letter_opener', '~> 1.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
