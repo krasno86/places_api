@@ -2,7 +2,7 @@
 
 class CompanyInfoSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :name, :description
+  attributes :name, :description, :address, :latitude, :longitude, :work_time_description
 
   belongs_to :company
 end

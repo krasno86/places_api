@@ -3,7 +3,7 @@
 module V1
   class CompaniesController < ApplicationController
     def index
-      render json: CompanySerializer.new(City.all)
+      render json: CompanySerializer.new(Company.all)
     end
 
     def companies_by_city

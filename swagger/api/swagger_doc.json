@@ -32,6 +32,52 @@
         }
       }
     },
+    "v1/companies_by_category": {
+      "get": {
+        "summary": "Show companies by category",
+        "tags": [
+          "Get companies by category"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "category_id",
+            "in": "query",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "companies found"
+          }
+        }
+      }
+    },
+    "v1/companies": {
+      "get": {
+        "summary": "Show all companies",
+        "tags": [
+          "Get all companies"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "companies found"
+          }
+        }
+      }
+    },
     "auth/": {
       "post": {
         "summary": "Create new user",
