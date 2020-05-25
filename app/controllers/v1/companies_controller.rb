@@ -8,12 +8,12 @@ module V1
 
     def companies_by_city
       city = City.find(params[:city_id])
-      render json: CompanySerializer.new(city.companies)
+      render json: CompanySerializer.new(city.companies, include: [:company_info])
     end
 
     def companies_by_category
       category = Category.find(params[:category_id])
-      render json: CompanySerializer.new(category.companies)
+      render json: CompanySerializer.new(category.companies, include: [:company_info])
     end
   end
 end
