@@ -11,7 +11,6 @@ describe 'Places API', type: :request, swagger_doc: 'api/swagger_doc.json' do
   path 'v1/companies_by_city' do
     get 'Show companies by city' do
       tags 'Get companies by city'
-      consumes 'application/json'
       parameter name: :city_id, in: :query, type: :string, required: true
       produces 'application/json'
       response '200', 'companies found' do
@@ -30,7 +29,6 @@ describe 'Places API', type: :request, swagger_doc: 'api/swagger_doc.json' do
   path 'v1/companies_by_category' do
     get 'Show companies by category' do
       tags 'Get companies by category'
-      consumes 'application/json'
       parameter name: :category_id, in: :query, type: :string, required: true
       produces 'application/json'
       response '200', 'companies found' do
@@ -49,7 +47,6 @@ describe 'Places API', type: :request, swagger_doc: 'api/swagger_doc.json' do
   path 'v1/companies' do
     get 'Show all companies' do
       tags 'Get all companies'
-      consumes 'application/json'
       produces 'application/json'
       response '200', 'companies found' do
         # schema type: :object,
