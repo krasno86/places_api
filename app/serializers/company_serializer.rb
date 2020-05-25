@@ -5,4 +5,6 @@ class CompanySerializer
 
   has_one :company_info
   belongs_to :city
+
+  attributes :active
 end

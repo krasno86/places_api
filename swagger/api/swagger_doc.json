@@ -5,6 +5,33 @@
   },
   "basePath": "/",
   "paths": {
+    "v1/companies_by_city": {
+      "get": {
+        "summary": "Show companies by city",
+        "tags": [
+          "Get companies by city"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "city_id",
+            "in": "query",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "companies found"
+          }
+        }
+      }
+    },
     "auth/": {
       "post": {
         "summary": "Create new user",
