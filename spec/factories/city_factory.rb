@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :city, class: 'City' do
-    name { 'Запорожье' }
+    name { Faker::Address.city }
   end
 end

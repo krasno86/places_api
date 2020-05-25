@@ -2,16 +2,8 @@
 
 module V1
   class CategoriesController < V1::ApplicationController
-    before_action :set_city
-
     def index
-      render json: CategorySerializer.new(@city.categories)
-    end
-
-    private
-
-    def set_city
-      @city = City.find(params[:city_id])
+      render json: CategorySerializer.new(Category.all)
     end
   end
 end
