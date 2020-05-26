@@ -2,7 +2,6 @@
 
 class CategorySerializer
   include FastJsonapi::ObjectSerializer
-  attributes :name
 
-  belongs_to :city
+  attributes :name
 end

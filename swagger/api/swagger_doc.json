@@ -5,6 +5,164 @@
   },
   "basePath": "/",
   "paths": {
+    "auth/": {
+      "post": {
+        "summary": "Create new user",
+        "tags": [
+          "Registration"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "params",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "username": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    },
+                    "role": {
+                      "type": "string",
+                      "enum": [
+                        "white",
+                        "red"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "username",
+                    "email",
+                    "password"
+                  ]
+                }
+              },
+              "required": [
+                "user"
+              ]
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Signup"
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      }
+    },
+    "auth/sign_in": {
+      "post": {
+        "summary": "Login user",
+        "tags": [
+          "Login"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "params",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "username": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    },
+                    "role": {
+                      "type": "string",
+                      "enum": [
+                        "user",
+                        "admin"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "email",
+                    "password"
+                  ]
+                }
+              },
+              "required": [
+                "user"
+              ]
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Signin"
+          },
+          "401": {
+            "description": "Signin"
+          }
+        }
+      }
+    },
+    "v1/categories": {
+      "get": {
+        "summary": "Show all categories",
+        "tags": [
+          "Categories"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "categories found",
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "type": "category",
+                "attributes": {
+                  "name": "Паб"
+                },
+                "relationships": {
+                  "companies": {
+                    "data": [
+                      {
+                        "id": "1",
+                        "type": "company"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "v1/cities": {
       "get": {
         "summary": "Show all cities",
@@ -16,21 +174,25 @@
         ],
         "responses": {
           "200": {
-            "description": "companies found",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "integer"
+            "description": "cities found",
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "type": "city",
+                "attributes": {
+                  "name": "Запорожье"
                 },
-                "name": {
-                  "type": "string"
+                "relationships": {
+                  "companies": {
+                    "data": [
+                      {
+                        "id": "1",
+                        "type": "company"
+                      }
+                    ]
+                  }
                 }
-              },
-              "required": [
-                "id",
-                "name"
-              ]
+              }
             }
           }
         }
@@ -197,129 +359,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "auth/": {
-      "post": {
-        "summary": "Create new user",
-        "tags": [
-          "Registration"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "params",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "user": {
-                  "type": "object",
-                  "properties": {
-                    "username": {
-                      "type": "string"
-                    },
-                    "email": {
-                      "type": "string"
-                    },
-                    "password": {
-                      "type": "string"
-                    },
-                    "role": {
-                      "type": "string",
-                      "enum": [
-                        "white",
-                        "red"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "username",
-                    "email",
-                    "password"
-                  ]
-                }
-              },
-              "required": [
-                "user"
-              ]
-            }
-          }
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "Signup"
-          },
-          "422": {
-            "description": "invalid request"
-          }
-        }
-      }
-    },
-    "auth/sign_in": {
-      "post": {
-        "summary": "Login user",
-        "tags": [
-          "Login"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "params",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "user": {
-                  "type": "object",
-                  "properties": {
-                    "username": {
-                      "type": "string"
-                    },
-                    "email": {
-                      "type": "string"
-                    },
-                    "password": {
-                      "type": "string"
-                    },
-                    "role": {
-                      "type": "string",
-                      "enum": [
-                        "user",
-                        "admin"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "email",
-                    "password"
-                  ]
-                }
-              },
-              "required": [
-                "user"
-              ]
-            }
-          }
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "Signin"
-          },
-          "401": {
-            "description": "Signin"
           }
         }
       }
