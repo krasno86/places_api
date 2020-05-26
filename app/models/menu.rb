@@ -2,5 +2,7 @@
 
 class Menu < ApplicationRecord
   belongs_to :company
-  # validate :image, presence: true
+  has_many_attached :images
+
+  validate :image, presence: true
 end
