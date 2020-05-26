@@ -5,4 +5,13 @@ Rails.application.routes.draw do
 
   mount Rswag::Ui::Engine, at: 'api-docs'
   mount Rswag::Api::Engine, at: 'api-docs'
+
+  namespace :v1 do
+    resources :cities, only: %i[index]
+    resources :categories, only: %i[index]
+    resources :companies, only: %i[index]
+
+    get 'companies_by_city', to: 'companies#companies_by_city'
+    get 'companies_by_category', to: 'companies#companies_by_category'
+  end
 end

@@ -127,6 +127,241 @@
           }
         }
       }
+    },
+    "v1/categories": {
+      "get": {
+        "summary": "Show all categories",
+        "tags": [
+          "Categories"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "categories found",
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "type": "category",
+                "attributes": {
+                  "name": "Паб"
+                },
+                "relationships": {
+                  "companies": {
+                    "data": [
+                      {
+                        "id": "1",
+                        "type": "company"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "v1/cities": {
+      "get": {
+        "summary": "Show all cities",
+        "tags": [
+          "Cities"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "cities found",
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "type": "city",
+                "attributes": {
+                  "name": "Запорожье"
+                },
+                "relationships": {
+                  "companies": {
+                    "data": [
+                      {
+                        "id": "1",
+                        "type": "company"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "v1/companies_by_city": {
+      "get": {
+        "summary": "Show companies by city",
+        "tags": [
+          "Companies"
+        ],
+        "parameters": [
+          {
+            "name": "city_id",
+            "in": "query",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "companies found",
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "type": "company",
+                "attributes": {
+                  "active": true
+                },
+                "relationships": {
+                  "companies": {
+                    "data": [
+                      {
+                        "id": "1",
+                        "type": "company"
+                      }
+                    ]
+                  }
+                },
+                "included": [
+                  {
+                    "id": 1,
+                    "type": "company_info",
+                    "attributes": {
+                      "name": "Кафе 0",
+                      "description": "Хорошее Кафе",
+                      "address": "Адрес Кафе: Запорожье улица 0",
+                      "latitude": null,
+                      "longitude": null,
+                      "work_time_description": "10.00 - 20.00"
+                    },
+                    "relationships": {
+                      "company": {
+                        "data": {
+                          "id": "1",
+                          "type": "company"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "v1/companies_by_category": {
+      "get": {
+        "summary": "Show companies by category",
+        "tags": [
+          "Companies"
+        ],
+        "parameters": [
+          {
+            "name": "category_id",
+            "in": "query",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "companies found",
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "type": "company",
+                "attributes": {
+                  "active": true
+                },
+                "relationships": {
+                  "companies": {
+                    "data": [
+                      {
+                        "id": "1",
+                        "type": "company"
+                      }
+                    ]
+                  }
+                },
+                "included": [
+                  {
+                    "id": 1,
+                    "type": "company_info",
+                    "attributes": {
+                      "name": "Кафе 0",
+                      "description": "Хорошее Кафе",
+                      "address": "Адрес Кафе: Запорожье улица 0",
+                      "latitude": null,
+                      "longitude": null,
+                      "work_time_description": "10.00 - 20.00"
+                    },
+                    "relationships": {
+                      "category": {
+                        "data": {
+                          "id": "1",
+                          "type": "category"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "v1/companies": {
+      "get": {
+        "summary": "Show all companies",
+        "tags": [
+          "Companies"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "companies found",
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "type": "company",
+                "attributes": {
+                  "active": true
+                },
+                "relationships": {
+                  "company_info": {
+                    "data": [
+                      {
+                        "id": "1",
+                        "type": "company"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

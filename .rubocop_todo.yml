@@ -191,3 +191,4 @@ AllCops:
   Exclude:
     - 'db/migrate/*'
     - 'db/schema.rb'
+    - 'spec/integration/v1/companies_spec.rb'
